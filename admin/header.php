@@ -16,7 +16,7 @@ if(!isset($_SESSION['auser']))
 						<img src="assets/img/rsadmin.png" alt="Logo">
 					</a>
 					<a href="dashboard.php" class="logo logo-small">
-						<img src="assets/img/logo-small.png" alt="Logo" width="30" height="30">
+						<img src="assets/img/logo-small" alt="Logo" width="30" height="30">
 					</a>
                 </div>
 				<!-- /Logo -->

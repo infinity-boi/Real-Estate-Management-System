@@ -21,7 +21,7 @@
 			}
 			else
 			{
-				$error='* Invalid User Name and Pussy'. $num_row;
+				$error='* Invalid User Name and Password'. $num_row;
 			}
 		}else{
 			$error="* Please Fill all the Fileds!";

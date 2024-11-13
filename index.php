@@ -9,7 +9,7 @@ include("config.php");
 <html lang="en">
 
 <head>
-<!-- FOR MORE PROJECTS visit: codeastro.com -->
+
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -65,7 +65,7 @@ include("config.php");
                     <div class="col-lg-12">
                         <div class="text-white">
                             <h1 class="mb-4"><span class="text-warning">Let us</span><br>
-                            Guide you Home</h1><!-- FOR MORE PROJECTS visit: codeastro.com -->
+                            Guide you Home</h1>
                             <form method="post" action="propertygrid.php">
                                 <div class="row">
                                     <div class="col-md-6 col-lg-2">
@@ -114,7 +114,7 @@ include("config.php");
         <div class="full-row bg-gray">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12"><!-- FOR MORE PROJECTS visit: codeastro.com -->
+                    <div class="col-lg-12">
                         <h2 class="text-secondary double-down-line text-center mb-5">What We Do</h2></div>
                 </div>
                 <div class="text-box-one">
@@ -168,7 +168,7 @@ include("config.php");
                             <li class="nav-item"> <a class="nav-link py-3" id="pills-contact-tab3" data-toggle="pill" href="#pills-resturant" role="tab" aria-controls="pills-contact" aria-selected="false">Best Sale</a> </li>
                         </ul>
                     </div> --->
-                    <div class="col-md-12"><!-- FOR MORE PROJECTS visit: codeastro.com -->
+                    <div class="col-md-12">
                         <div class="tab-content mt-4" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home">
                                 <div class="row">
@@ -178,7 +178,7 @@ include("config.php");
 										{
 									?>
 								
-                                    <div class="col-md-6 col-lg-4"><!-- FOR MORE PROJECTS visit: codeastro.com -->
+                                    <div class="col-md-6 col-lg-4"> 
                                         <div class="featured-thumb hover-zoomer mb-4">
                                             <div class="overlay-black overflow-hidden position-relative"> <img src="admin/property/<?php echo $row['18'];?>" alt="pimage">
                                                 <div class="featured bg-warning text-white">New</div>
@@ -370,69 +370,29 @@ include("config.php");
                 <div class="row">
                     <div class="col-lg-12">
                         <h2 class="text-secondary double-down-line text-center mb-5">Popular Places</h2></div>
-                </div><!-- FOR MORE PROJECTS visit: codeastro.com -->
+                </div>
                 <div class="col-lg-12">
                     <div class="row">
+                        <?php
+                        $query=mysqli_query($con,"SELECT count(city) as cnt, city FROM property group by city order by cnt desc ");
+                        $curi = 0;
+                            while($row=mysqli_fetch_array($query) and $curi<4)
+                                {
+                                    $curi += 1;
+                                    $imgsrc = "images/thumbnail4/".$curi.".jpg";
+                        ?>
                         <div class="col-md-6 col-lg-3 pb-1">
-                            <div class="overflow-hidden position-relative overlay-secondary hover-zoomer mx-n13 z-index-9"> <img src="images/thumbnail4/1.jpg" alt="">
+                            <div class="overflow-hidden position-relative overlay-secondary hover-zoomer mx-n13 z-index-9"> <img src="<?php echo $imgsrc?>" alt="">
                                 <div class="text-white xy-center z-index-9 position-absolute text-center w-100">
-									<?php
-										$query=mysqli_query($con,"SELECT count(state), property.* FROM property where city='Olisphis'");
-											while($row=mysqli_fetch_array($query))
-												{
-										?>
-                                    <h4 class="hover-text-success text-capitalize"><a href="stateproperty.php?id=<?php echo $row['17']?>"><?php echo $row['state'];?></a></h4>
-                                    <span><?php 
+									
+                                    <h4 class="hover-text-success text-capitalize"><a href="stateproperty.php?id=<?php echo $row['city']?>"><?php echo $row['city'];?></a></h4>
+                                    <span><?php
 												$total = $row[0];
 												echo $total;?> Properties Listed</span> </div>
-									<?php } ?>
-                            </div>
-                        </div><!-- FOR MORE PROJECTS visit: codeastro.com -->
-                        <div class="col-md-6 col-lg-3 pb-1">
-                            <div class="overflow-hidden position-relative overlay-secondary hover-zoomer mx-n13 z-index-9"> <img src="images/thumbnail4/2.jpg" alt="">
-                                <div class="text-white xy-center z-index-9 position-absolute text-center w-100">
-									<?php
-										$query=mysqli_query($con,"SELECT count(state), property.* FROM property where city='Awrerton'");
-											while($row=mysqli_fetch_array($query))
-												{
-										?>
-                                    <h4 class="hover-text-success text-capitalize"><a href="stateproperty.php?id=<?php echo $row['17']?>"><?php echo $row['state'];?></a></h4>
-                                    <span><?php 
-												$total = $row[0];
-												echo $total;?> Properties Listed</span> </div>
-									<?php } ?>
+									
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-3 pb-1"><!-- FOR MORE PROJECTS visit: codeastro.com -->
-                            <div class="overflow-hidden position-relative overlay-secondary hover-zoomer mx-n13 z-index-9"> <img src="images/thumbnail4/3.jpg" alt="">
-                                <div class="text-white xy-center z-index-9 position-absolute text-center w-100">
-                                    <?php
-										$query=mysqli_query($con,"SELECT count(state), property.* FROM property where city='Floson'");
-											while($row=mysqli_fetch_array($query))
-												{
-										?>
-                                    <h4 class="hover-text-success text-capitalize"><a href="stateproperty.php?id=<?php echo $row['17']?>"><?php echo $row['state'];?></a></h4>
-                                    <span><?php 
-												$total = $row[0];
-												echo $total;?> Properties Listed</span> </div>
-									<?php } ?>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3 pb-1">
-                            <div class="overflow-hidden position-relative overlay-secondary hover-zoomer mx-n13 z-index-9"> <img src="images/thumbnail4/4.jpg" alt="">
-                                <div class="text-white xy-center z-index-9 position-absolute text-center w-100">
-                                    <?php
-										$query=mysqli_query($con,"SELECT count(state), property.* FROM property where city='Ulmore'");
-											while($row=mysqli_fetch_array($query))
-												{
-										?>
-                                    <h4 class="hover-text-success text-capitalize"><a href="stateproperty.php?id=<?php echo $row['17']?>"><?php echo $row['state'];?></a></h4>
-                                    <span><?php 
-												$total = $row[0];
-												echo $total;?> Properties Listed</span> </div>
-									<?php } ?>
-                            </div>
-                        </div><!-- FOR MORE PROJECTS visit: codeastro.com -->
+                        <?php } ?>
                     </div>
                 </div>
             </div>
