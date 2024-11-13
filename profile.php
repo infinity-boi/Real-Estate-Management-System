@@ -9,6 +9,7 @@ if(!isset($_SESSION['uemail']))
 }
 
 ////// code
+
 $error='';
 $msg='';
 if(isset($_POST['insert']))
